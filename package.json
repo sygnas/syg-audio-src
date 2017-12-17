@@ -1,6 +1,6 @@
 {
   "name": "syg-audio-src",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Check user environment and set HTML5 Audio from HDS / HLS / dash.js",
   "main": "dist/syg-audio-src.js",
   "module": "dist/syg-audio-src.es.js",

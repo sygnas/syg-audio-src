@@ -117,7 +117,7 @@ MedisSourceExtensionに対応しているか。
 | type | String | ストリーミング、非ストリーミングのタイプを指定する |
 
 #### url
-ストリーミングの場合は http://{この部分}//manifest.f4m をベースURLとして渡す。
+ストリーミングの場合は http://{この部分}//manifest.f4m をベースURLとして渡す。
 
 #### type
 非ストリーミングの場合は `TYPE_FILE` を必ず指定。
