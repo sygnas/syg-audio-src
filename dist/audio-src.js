@@ -88,6 +88,8 @@ var _class = function () {
     this.is_support_hls = false; // HLSを再生できるか
     this.is_support_mse = false; // MedisSourceExtensionに対応しているか
     this.now_type = null; // ソースとして設定されたタイプ。TYPE_HDS ... TYPE_FILE などが入る
+
+    this.$_check_support_result = null; // check_support() の実行結果
   }
 
   /**
@@ -99,13 +101,18 @@ var _class = function () {
   _createClass(_class, [{
     key: 'check_support',
     value: function check_support() {
+      // すでに実行していたらその結果を返す
+      if (this.$_check_support_result !== null) return this.$_check_support_result;
+
       try {
         this.is_support_hds = is_can_play_hds(this.audio); // HDSを再生できるか
         this.is_support_hls = is_can_play_hls(this.audio); // HLSを再生できるか
         this.is_support_mse = is_support_mse(this.audio); // MedisSourceExtensionに対応しているか
       } catch (e) {
+        this.$_check_support_result = false;
         return false;
       }
+      this.$_check_support_result = true;
       return true;
     }
 
@@ -216,4 +223,4 @@ var _class = function () {
 return _class;
 
 })));
-//# sourceMappingURL=syg-audio-src.js.map
+//# sourceMappingURL=audio-src.js.map

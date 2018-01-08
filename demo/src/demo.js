@@ -1,4 +1,4 @@
-import AudioSrc from '../../dist/syg-audio-src.es';
+import AudioSrc from '../../dist/audio-src.es';
 
 const audio_src = new AudioSrc();
 

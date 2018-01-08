@@ -72,10 +72,10 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dist_syg_audio_src_es__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dist_audio_src_es__ = __webpack_require__(1);
 
 
-var audio_src = new __WEBPACK_IMPORTED_MODULE_0__dist_syg_audio_src_es__["a" /* default */]();
+var audio_src = new __WEBPACK_IMPORTED_MODULE_0__dist_audio_src_es__["a" /* default */]();
 
 var buttons = document.querySelectorAll('.js-audio');
 
@@ -201,6 +201,8 @@ var _class = function () {
     this.is_support_hls = false; // HLSを再生できるか
     this.is_support_mse = false; // MedisSourceExtensionに対応しているか
     this.now_type = null; // ソースとして設定されたタイプ。TYPE_HDS ... TYPE_FILE などが入る
+
+    this.$_check_support_result = null; // check_support() の実行結果
   }
 
   /**
@@ -211,13 +213,18 @@ var _class = function () {
   _createClass(_class, [{
     key: 'check_support',
     value: function check_support() {
+      // すでに実行していたらその結果を返す
+      if (this.$_check_support_result !== null) return this.$_check_support_result;
+
       try {
         this.is_support_hds = is_can_play_hds(this.audio); // HDSを再生できるか
         this.is_support_hls = is_can_play_hls(this.audio); // HLSを再生できるか
         this.is_support_mse = is_support_mse(this.audio); // MedisSourceExtensionに対応しているか
       } catch (e) {
+        this.$_check_support_result = false;
         return false;
       }
+      this.$_check_support_result = true;
       return true;
     }
 
@@ -326,7 +333,7 @@ var _class = function () {
 }();
 
 /* harmony default export */ __webpack_exports__["a"] = (_class);
-//# sourceMappingURL=syg-audio-src.es.js.map
+//# sourceMappingURL=audio-src.es.js.map
 
 /***/ }),
 /* 2 */

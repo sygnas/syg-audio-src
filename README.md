@@ -8,18 +8,19 @@ Check user environment and set HTML5 Audio from HDS / HLS / MSE<br>
 HTML5 の `new Audio()` にオーディオソースをセットするだけのモジュールです。
 再生コントロールはしません。
 
-MSE形式（MPEG-DASH）を使う場合は dash.js が必要。
+MSE形式（MPEG-DASH）を使う場合は [dash.js](https://github.com/Dash-Industry-Forum/dash.js) が必要。
+
 
 ## Install
 ```sh
-npm install syg-audio-src
+npm install --save @sygnas/audio-src
 ```
 
 ## Javascript
 
 ### 共通部分
 ```JavaScript
-import AudioSrc from 'syg-audio-src';
+import AudioSrc from '@sygnas/audio-src';
 const audio_src = new AudioSrc();
 ```
 

@@ -18,7 +18,7 @@ const paths = {
 let fileName,
   Configure;
 
-fileName = process.env.NODE_ENV !== 'production' ? 'syg-audio-src' : 'syg-audio-src.min';
+fileName = process.env.NODE_ENV !== 'production' ? 'audio-src' : 'audio-src.min';
 
 Configure = {
   input: `${paths.source.root}index.js`,
